@@ -1,0 +1,73 @@
+.navBar {
+    background-color: rgba(255, 255, 255, 0.68);
+    width: 100vw; 
+    height: 90px; 
+    border-bottom-style: solid; 
+    border-bottom-color: #979797; 
+    border-bottom-width: 3px; 
+}
+
+.localNavBar {
+    background-color: rgba(255, 255, 255, 0.68);
+    width: 100vw; 
+    height: 50px; 
+    border-bottom-style: solid; 
+    border-bottom-color: #979797; 
+    border-bottom-width: 3px; 
+}
+
+
+ul.navLinks {
+    list-style-type: none;
+    position: absolute; 
+    margin: 0;
+    padding: 0; 
+    width: 100%;
+}
+
+ul.navLinks li { 
+    float: right;
+}
+
+ul.navLinks li a {
+    display: block;
+    text-align: center;
+    padding: 10px 15px;
+    margin-top: 25px;
+    text-decoration: none;
+    font-size: 20px; 
+    font-family: "Montserrat";
+    color: #4A4A4A; 
+}
+
+ul.navLinks li a:hover {
+    text-decoration: underline;
+}
+
+ul.navLinks .local {
+    margin-top: 2px; 
+}
+
+ul.navLinks .current {
+    text-decoration: underline;
+}
+
+ul.navLinks .last {
+    margin-right: 25px; 
+}
+
+ul.navLinks .title {
+    margin-top: 3px; 
+    font-size: 50px; 
+}
+
+ul.navLinks .localTitle {
+    margin-top: 0px;
+    padding-top: 5px; 
+    font-size: 30px; 
+}
+
+@media screen and (max-width: 600px){ 
+
+    
+}

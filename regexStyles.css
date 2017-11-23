@@ -1,0 +1,234 @@
+body  {
+    padding: 0; 
+    margin: 0; 
+    background-color: #F1F0F0; 
+    font-family: "Montserrat";
+    
+}
+
+
+#picDiv {
+    padding: 0; 
+    margin: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background-image: url(media/BackgroundWorkspace.jpg);
+    background-size: cover; 
+    position: fixed;
+
+}
+
+.blurDiv {
+    padding: 0; 
+    margin: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background-color: rgba(241, 240, 240, 0.9);
+}
+
+
+
+
+#intro {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 80px; 
+    margin-right: 2%;
+}
+
+.header {
+    color: #4A4A4A; 
+    font-weight: 500; 
+    margin-left: 2%; 
+    margin-bottom: 0; 
+}
+
+.description {
+    color: #4A4A4A; 
+    font-weight: 300; 
+    font-size: 1.5em; 
+    margin-left: 4%; 
+    margin-right: 4%; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+
+#startButtonDiv {
+    display: block; 
+    margin: 0 auto; 
+    width: 490px; 
+    margin-top: 100px; 
+}
+
+.greenButton {
+    background-color: #2ECC71; 
+    border-radius: 21px;
+    margin: 10px;
+    font-size: 25px;
+    color: white; 
+    height: 80px; 
+    width: 222px;  
+}
+
+.greenButton:hover {
+    opacity: .65;
+}
+
+.smallGreenButton {
+    background-color: #2ECC71; 
+    border-radius: 18px;
+    margin: 10px;
+    margin-left: 4%; 
+    font-size: 20px;
+    color: white; 
+    height: 55px; 
+    width: 120px; 
+}
+
+.smallGreenButton:hover {
+    opacity: .65;
+}
+
+.quizQuestionNum {
+    text-decoration: underline; 
+}
+.quizQuestion {
+    margin-right: 4%; 
+}
+
+.quizButtonDiv {
+    margin-top: 40px; 
+    display: block;  
+    width: 100vw; 
+}
+
+.nextButton {
+    background-color: #2ECC71; 
+    border-radius: 18px;
+    margin: 10px;
+    margin-right: 4%; 
+    font-size: 20px;
+    color: white; 
+    height: 55px; 
+    width: 140px; 
+    position: absolute; 
+    right: 0; 
+}
+
+.nextButton:hover {
+    opacity: .65; 
+}
+
+.backButton {
+    background-color: #D0021B; 
+    border-radius: 18px;
+    margin: 10px;
+    margin-left: 4%; 
+    font-size: 20px;
+    color: white; 
+    height: 55px; 
+    width: 140px; 
+    position: absolute; 
+    left: 0; 
+}
+
+.backButton:hover {
+    opacity: .65; 
+}
+
+@media screen and (max-width: 700px){ 
+    .header {
+        font-size: 1.2em;
+    }
+    
+    .description {
+        font-size: 1em; 
+    
+    }
+    
+    #intro {
+        font-size: 20px; 
+        margin-right: 4%; 
+        margin-left: 4%; 
+    }
+    
+    .greenButton {
+        height: 60px; 
+        width: 122px; 
+        font-size: 15px; 
+    }
+    
+    #startButtonDiv {
+        width: 290px;  
+    }
+    
+}
+
+
+
+
+.customRadio {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-left: 4%;
+    margin-top: 25px; 
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #4A4A4A;
+    font-weight: 600;
+    
+}
+
+.customRadio input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-color: #4A4A4A; 
+    border-style: solid; 
+    border-width: 1px; 
+    border-radius: 50%;
+    transition: background-color 0.5s; 
+}
+
+.customRadio:hover input ~ .checkmark {
+    background-color: #b7b3b3; 
+}
+
+.customRadio input:checked ~ .checkmark {
+    background-color: #4A4A4A; 
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.customRadio input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.customRadio .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #F1F0F0; 
+}
+
+
+
+
+
+
+
