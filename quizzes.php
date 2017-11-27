@@ -1,28 +1,10 @@
-<!doctype html>
-<html lang='en'>
-<head>
-	<meta charset="utf-8">
-	<title>RegEx - Quizzes</title>
-    <link rel="stylesheet" type="text/css" href="regexStyles.css">
-    <link rel="stylesheet" type="text/css" href="regexNavStyles.css">
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
-</head>
-<body>
-<div class="blurDiv">
-    <nav>
-        <div class="navBar">
-            <ul class="navLinks">
-              <li><a href="references.html" class="navButton last">Reference</a></li>
-              <li><a href="quizzes.html" class="navButton current">Quizzes</a></li>
-              <li><a href="practice.html" class="navButton">Practice</a></li>
-              <li><a href="lessons.html" class="navButton">Lessons</a></li>
-              <li><a href="index.html" class="navButton">Home</a></li>
-              <li style="float:left"><a href="index.html" class="title">RegEx</a></li>
-            </ul>
-        </div>
-        
+<?php
+	include_once("header.inc.php");
+
+?>
+<script src="quizScript.js">	
+</script>
+
         <div class="localNavBar">
             <ul class="navLinks">
               <li><a href="" class="navButton last local">Advanced</a></li>
@@ -32,7 +14,7 @@
             </ul>
         </div>
     </nav>
-    
+
     <h1 class="header">Basic Quiz: Introduction to RegEx</h1>
     <p class="description quizQuestionNum">Question 1:</p>
     <p class="description quizQuestion">This is a question. It is a good question. yay. HI JAKE! I need to type more so it looks like a real question. Because this is a real question. I am typing words. This is fun. The class i'm in now is really boring. Im ready to go home. I'm probably gonna eat when I go home. Food is good. Ahhh food. </p>
@@ -51,21 +33,15 @@
           <input type="radio" name="radio">
           <span class="checkmark"></span>
         </label>
-        <label class="customRadio">Fourth answer
+        <label class="customRadio" >Fourth answer
           <input type="radio" name="radio">
           <span class="checkmark"></span>
         </label>
     </form>
-    
+
     <div class="quizButtonDiv">
-    <button type="button" onclick="" class="nextButton">Next</button>
-    <button type="button" onclick="" class="backButton">Back</button>
+    <button type="button" onclick="nextQuestion();" class="nextButton" id="next">Next</button>
+    <button type="button" onclick="back();" class="backButton" id="back" disabled="true" style="background: #cccccc">Back</button>
     </div>
-    
-    
-    
-    
-    
-</div>
-</body>
-</html>
+
+<?php 	include_once("footer.inc.php"); ?>
