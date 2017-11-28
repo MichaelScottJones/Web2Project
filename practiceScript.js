@@ -3,7 +3,7 @@ var qmax = 1;
 
 var begQuestions = [
     "Which of the following matches regexp /a(ab)*a/",
-    "Which of the following matches regexp /ab+c?/",
+    "Which of the following matches regexp /ab+c/?",
 ];
 var intQuestions = [];
 var advQuestions = [];
