@@ -2,7 +2,7 @@
 	include_once("header.inc.php");
 
 ?>
-<script src="quizScript.js">	
+<script src="quizScript.js">
 </script>
 
         <div class="localNavBar">
@@ -16,11 +16,11 @@
     </nav>
 
     <h1 class="header">Basic Quiz: Introduction to RegEx</h1>
-    <p class="description quizQuestionNum">Question 1:</p>
-    <p class="description quizQuestion">This is a question. It is a good question. yay. HI JAKE! I need to type more so it looks like a real question. Because this is a real question. I am typing words. This is fun. The class i'm in now is really boring. Im ready to go home. I'm probably gonna eat when I go home. Food is good. Ahhh food. </p>
+    <p class="description quizQuestionNum" id="QNum">Question 1:</p>
+    <p class="description quizQuestion" id="Q">This is a question. It is a good question. yay. HI JAKE! I need to type more so it looks like a real question. Because this is a real question. I am typing words. This is fun. The class i'm in now is really boring. Im ready to go home. I'm probably gonna eat when I go home. Food is good. Ahhh food. </p>
 
 
-    <form>
+    <form onload="setQuestion();">
         <label class="customRadio">First answer
           <input type="radio" name="radio">
           <span class="checkmark"></span>
@@ -41,7 +41,7 @@
 
     <div class="quizButtonDiv">
     <button type="button" onclick="nextQuestion();" class="nextButton" id="next">Next</button>
-    <button type="button" onclick="back();" class="backButton" id="back" disabled="true" style="background: #cccccc">Back</button>
+    <button type="button" onclick="back();" class="backButton" id="back" disabled="true" style="background: #dddddd">Back</button>
     </div>
 
 <?php 	include_once("footer.inc.php"); ?>
