@@ -42,7 +42,7 @@
 
     <div class="quizButtonDiv">
     <button type="button" onclick="nextQuestion();" class="nextButton" id="next">Next</button>
-    <button type="button" onclick="back();" class="backButton" id="back" disabled="true" style="background: #bbbbbb">Back</button>
+    <button type="button" onclick="back();" class="backButton" id="back" disabled="true" style="background: #9b9b9b">Back</button>
     </div>
 
 <?php 	include_once("footer.inc.php"); ?>

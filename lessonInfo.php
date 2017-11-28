@@ -18,6 +18,9 @@
 	<div class="description" id="lesson"></div>
     <p class="description" id="lesson">The lesson information goes here. It might be a good idea for us to use markdown instead of HTML. If going with HTML though, the whole lesson can be formatted in this P tag or we can use multiple description p tags.</p>
 
-    <button type="button" onclick="window.location.href='lessons.php'" class="backButton">Back</button>
+    
+    <div class="bottomDiv">
+        <button type="button" onclick="window.location.href='lessons.php'" class="backButton">Back</button>
+    </div>
 
 <?php 	include_once("footer.inc.php"); ?>
