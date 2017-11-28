@@ -14,27 +14,27 @@
 
     <h1 class="header">Basic Practice</h1>
     <p class="description">Practice 1: Introduction to RegEx</p>
-    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go ></button>
+    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go</button>
 
     <p class="description">Practice 2: Practice title</p>
-    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go ></button>
+    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go</button>
 
     <p class="description">Practice 3: Practice title</p>
-    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go ></button>
+    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go</button>
 
     <p class="description">Practice 4: Practice title</p>
-    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go ></button>
+    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go</button>
 
     <p class="description">Practice 5: Practice title</p>
-    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go ></button>
+    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go</button>
 
     <p class="description">Practice 6: Practice title</p>
-    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go ></button>
+    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go</button>
 
     <p class="description">Practice 7: Practice title</p>
-    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go ></button>
+    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go</button>
 
     <p class="description">Practice 8: Practice title</p>
-    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go ></button>
+    <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go</button>
 
 <?php 	include_once("footer.inc.php"); ?>

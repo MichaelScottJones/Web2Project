@@ -15,12 +15,15 @@
 
 
     <h1 class="header" id="header">Lesson 1: The lesson title goes here. </h1>
-	<div class="description" id="lesson"></div>
-    <p class="description" id="lesson">The lesson information goes here. It might be a good idea for us to use markdown instead of HTML. If going with HTML though, the whole lesson can be formatted in this P tag or we can use multiple description p tags.</p>
+	<div class="readable" id="lesson"></div>
+    <p class="readable" id="lesson"></p>
+
+    <!-- The lesson information goes here. It might be a good idea for us to use markdown instead of HTML. If going with HTML though, the whole lesson can be formatted in this P tag or we can use multiple description p tags. -->
 
     
     <div class="bottomDiv">
         <button type="button" onclick="window.location.href='lessons.php'" class="backButton">Back</button>
+        <button type="button" onclick="nextQuestion();" class="nextButton" id="next">Next Lesson</button>
     </div>
 
 <?php 	include_once("footer.inc.php"); ?>
