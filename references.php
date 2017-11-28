@@ -1,6 +1,5 @@
 <?php
 	include_once("header.inc.php");
-
 ?>
 
     <h1 class="header">Site References</h1>

@@ -1,6 +1,5 @@
 <?php
 	include_once("header.inc.php");
-
 ?>
 
         <div class="localNavBar">

@@ -1,6 +1,5 @@
 <?php
 	include_once("header.inc.php");
-
 ?>
 <script src="quizScript.js">
 </script>
