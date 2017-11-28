@@ -17,7 +17,7 @@
 <html lang='en'>
 <head>
 	<meta charset="utf-8">
-	<title>RegEx - Lessons</title>
+	<title>RegEx</title>                                                   <!-- TODO: VARIABLE TITLE -->
     <link rel="stylesheet" type="text/css" href="regexStyles.css">
     <link rel="stylesheet" type="text/css" href="regexNavStyles.css">
 

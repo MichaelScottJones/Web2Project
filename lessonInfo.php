@@ -1,6 +1,8 @@
 <?php
 	include_once("header.inc.php");
 ?>
+<script src="lessonScript.js">
+</script>
         <div class="localNavBar">
             <ul class="navLinks">
               <li><a href="" class="navButton last local">Advanced</a></li>
@@ -12,9 +14,10 @@
     </nav>
 
 
-    <h1 class="header">Lesson 1: The lesson title goes here. </h1>
-    <p class="description">The lesson information goes here. It might be a good idea for us to use markdown instead of HTML. If going with HTML though, the whole lesson can be formatted in this P tag or we can use multiple description p tags.</p>
+    <h1 class="header" id="header">Lesson 1: The lesson title goes here. </h1>
+	<div class="description" id="lesson"></div>
+    <p class="description" id="lesson">The lesson information goes here. It might be a good idea for us to use markdown instead of HTML. If going with HTML though, the whole lesson can be formatted in this P tag or we can use multiple description p tags.</p>
 
-    <button type="button" onclick="window.location.href='lessons.php'" class="backButton" style="bottom: 0;">Back</button>
+    <button type="button" onclick="window.location.href='lessons.php'" class="backButton">Back</button>
 
 <?php 	include_once("footer.inc.php"); ?>

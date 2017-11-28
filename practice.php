@@ -13,7 +13,7 @@
     </nav>
 
     <h1 class="header">Basic Practice</h1>
-    <p class="description">Practice 1: Practice title</p>
+    <p class="description">Practice 1: Introduction to RegEx</p>
     <button type="button" onclick="window.location.href='practiceInfo.php'" class="smallGreenButton">Go ></button>
 
     <p class="description">Practice 2: Practice title</p>

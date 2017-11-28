@@ -13,7 +13,7 @@
     </nav>
 
     <h1 class="header">Basic Lessons</h1>
-    <p class="description">Lesson 1: lesson title</p>
+    <p class="description">Lesson 1: The Basics</p>
     <button type="button" onclick="window.location.href='lessonInfo.php'" class="smallGreenButton">Go ></button>
 
     <p class="description">Lesson 2: lesson title</p>

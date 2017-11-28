@@ -12,26 +12,30 @@ var advQuestions = [];
 
 var begAnswers = [
     [
-        "abc",
+        "abcz",
         "abbbbbbbb",
-        "azc",
-        "abcbcbcbc"
+        "az45c",
+        "ac"
     ],
     [
-        "abc",
+        "abcxyz",
         "xyz",
         "abc|xyz",
-        "acxz"
+        "abzxyc"
     ],
     [
-        "battle!",
         "Hot",
         "green",
-        "is.?"
+        "swamping.",
+        "jump up."
     ]
 ];
 var intAnswers = [];
-var advQuestions = [];
+var advAnswers = [];
+
+var begSolutions = [1, 1, 2];
+var intSolutions = [];
+var advSolutions = [];
 
 window.onload = function(){
     setQuestion();
@@ -40,7 +44,7 @@ window.onload = function(){
 function toggleButtons(){
     if(q == 0){
         document.getElementById("back").disabled = true;
-        document.getElementById("back").style.background = "#dddddd";
+        document.getElementById("back").style.background = "#bbbbbb";
     }
     else{
         document.getElementById("back").disabled = false;
@@ -64,7 +68,7 @@ function nextQuestion(){
     if(!isNaN(choice)){
         selections[q] = choice;
         if(q == qmax){
-            // TODO SUBMIT
+            submitQuiz();
         }
         else{
             q++;
@@ -75,6 +79,13 @@ function nextQuestion(){
 }
 
 function back() {
+    var choice = NaN;
+    for(var i=0; i<4; i++){
+        if(document.getElementsByName("radio")[i].checked == true){
+            choice = i;
+        }
+    }
+    selections[q] = choice;
     q--;
     toggleButtons();
     setQuestion();
@@ -93,4 +104,26 @@ function setQuestion(){
     if(!isNaN(selections[q])){
         document.getElementsByName("radio")[selections[q]].checked = true;
     }
+}
+
+function submitQuiz(){
+    document.getElementById("QNum").style.display = "none";
+    document.getElementById("Q").style.display = "none";
+    document.getElementById("next").style.display = "none";
+    document.getElementById("back").innerHTML = "Start Over";
+    document.getElementById("back").onclick = function(){location.reload();};
+
+
+    var content = "";
+    for(var i=0; i<=qmax; i++){
+        content += '<p class="description quizQuestionNum">Question ' + (i+1) + ':</p>';
+        content += '<p class="description quizQuestion" id="Q">' + begQuestions[i] + '</p>';
+        if(begSolutions[i] == selections[i]){
+            content += '<p style="color: #2ECC71" class="description quizQuestion">Your Answer: ' + begAnswers[i][selections[i]] + '</p>';
+        }else{
+            content += '<p style="color: #D0021B" class="description quizQuestion">Your Answer: ' + begAnswers[i][selections[i]] + '</p>';
+        }
+        content += '<p style="color: #2ECC71" class="description quizQuestion">Correct Answer: ' + begAnswers[i][begSolutions[i]] + '</p>';
+    }
+    document.getElementById("form").innerHTML = content;
 }
