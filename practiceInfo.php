@@ -1,6 +1,5 @@
 <?php
 	include_once("header.inc.php");
-
 ?>
 
         <div class="localNavBar">
@@ -14,9 +13,35 @@
     </nav>
 
 
-    <h1 class="header">Practice 1: The practice title goes here. </h1>
-    <p class="description">The practice information and sample questions could go here. Like on the lessons page, we might decide to use markdown. The practice page does not have interactivity so we do not need radio buttons or anything like that.</p>
+    <h1 class="header">Basic Practice: Introduction to RegEx</h1>
+    <p class="description quizQuestionNum">Question 1:</p>
+    <p class="description quizQuestion">This is a question. It is a good question. yay. HI JAKE! I need to type more so it looks like a real question. Because this is a real question. I am typing words. This is fun. The class i'm in now is really boring. Im ready to go home. I'm probably gonna eat when I go home. Food is good. Ahhh food. </p>
 
-    <button type="button" onclick="window.location.href='practice.php'" class="backButton" style="bottom: 0">Back</button>
+
+    <form>
+        <label class="customRadio">First answer
+          <input type="radio" name="radio">
+          <span class="checkmark"></span>
+        </label>
+        <label class="customRadio">Second answer
+          <input type="radio" name="radio">
+          <span class="checkmark"></span>
+        </label>
+        <label class="customRadio">Third answer
+          <input type="radio" name="radio">
+          <span class="checkmark"></span>
+        </label>
+        <label class="customRadio" >Fourth answer
+          <input type="radio" name="radio">
+          <span class="checkmark"></span>
+        </label>
+    </form>
+
+    <div class="quizButtonDiv">
+    <button type="button" onclick="nextQuestion();" class="nextButton" id="next">Next</button>
+    <button type="button" onclick="back();" class="backButton" id="back" disabled="true" style="background: #cccccc">Back</button>
+    </div>
+
+    <button type="button" onclick="window.location.href='practice.php'" class="backButton" style="bottom: 0;">Exit Practice</button>
 
 <?php 	include_once("footer.inc.php"); ?>

@@ -63,6 +63,7 @@ body  {
 .greenButton {
     background-color: #2ECC71; 
     border-radius: 21px;
+    border-style: none; 
     margin: 10px;
     font-size: 25px;
     color: white; 
@@ -77,6 +78,7 @@ body  {
 .smallGreenButton {
     background-color: #2ECC71; 
     border-radius: 18px;
+    border-style: none; 
     margin: 10px;
     margin-left: 4%; 
     font-size: 20px;
@@ -105,6 +107,7 @@ body  {
 .nextButton {
     background-color: #2ECC71; 
     border-radius: 18px;
+    border-style: none; 
     margin: 10px;
     margin-right: 4%; 
     font-size: 20px;
@@ -122,6 +125,7 @@ body  {
 .backButton {
     background-color: #D0021B; 
     border-radius: 18px;
+    border-style: none; 
     margin: 10px;
     margin-left: 4%; 
     font-size: 20px;
@@ -129,7 +133,7 @@ body  {
     height: 55px; 
     width: 140px; 
     position: absolute; 
-    left: 0; 
+    left: 0;
 }
 
 .backButton:hover {
