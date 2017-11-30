@@ -19,7 +19,7 @@
     <p class="readable" id="lesson"></p>
 
     <!-- The lesson information goes here. It might be a good idea for us to use markdown instead of HTML. If going with HTML though, the whole lesson can be formatted in this P tag or we can use multiple description p tags. -->
-
+    
     
     <div class="bottomDiv">
         <button type="button" onclick="window.location.href='lessons.php'" class="backButton">Back</button>
