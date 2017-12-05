@@ -15,8 +15,10 @@
 
 
     <h1 class="header" id="header">Lesson 1: The lesson title goes here. </h1>
-	<div class="readable" id="lesson"></div>
-    <p class="readable" id="lesson"></p>
+    
+	  <div class="readable" id="lesson"></div>
+
+   <!-- <p class="readable" id="lesson"></p> -->
 
     <!-- The lesson information goes here. It might be a good idea for us to use markdown instead of HTML. If going with HTML though, the whole lesson can be formatted in this P tag or we can use multiple description p tags. -->
     
