@@ -3,9 +3,9 @@ var qmax = 2;
 var selections = [NaN, NaN, NaN];
 
 var begQuestions = [
-    "Which of the following matches regexp /a.[bc]+/",
-    "Which of the following matches regexp /abc|xyz/",
-    "Which of the following matches regexp /[a-z]+[\.\?!]/"
+    "Which of the following matches regexp <code>/a.[bc]+/</code>",
+    "Which of the following matches regexp <code>/abc|xyz/</code>",
+    "Which of the following matches regexp <code>/[a-z]+[\.\?!]/</code>"
 ];
 var intQuestions = [];
 var advQuestions = [];
