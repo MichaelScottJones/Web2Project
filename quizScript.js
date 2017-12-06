@@ -245,7 +245,7 @@ function setQuestion(){
         default:
             console.log("ERROR: Illegal Level");
     }
-    document.getElementById("QNum").innerHTML = "Question " + (q+1) + ":";
+    document.getElementById("QNum").innerHTML = "Question " + (q+1) + " of " + (qmax+1) + ":";
     document.getElementById("Q").innerHTML = questions[q];
 
     var form = document.getElementById("form");
