@@ -6,15 +6,15 @@
 
         <div class="localNavBar">
             <ul class="navLinks">
-              <li><a href="" class="navButton last local" onclick="changeLevel(2);">Advanced</a></li>
-              <li><a href="" class="navButton local" onclick="changeLevel(1);">Intermediate</a></li>
-              <li><a href="" class="navButton current local" onclick="changeLevel(0);">Beginner</a></li>
+              <li><a class="navButton last local" onclick="changeLevel(2);">Advanced</a></li>
+              <li><a class="navButton local" onclick="changeLevel(1);">Intermediate</a></li>
+              <li><a class="navButton current local" onclick="changeLevel(0);">Beginner</a></li>
               <li style="float:left"><a href="" class="localTitle">Quizzes </a></li>
             </ul>
         </div>
     </nav>
 
-    <h1 class="header">Basic Quiz: Introduction to RegEx</h1>
+    <h1 class="header" id="quizTitle"></h1>
     <p class="description quizQuestionNum" id="QNum">Question 1:</p>
     <p class="description quizQuestion" id="Q">This is filler text that you should not be seeing in prod! </p>
 

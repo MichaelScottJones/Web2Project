@@ -1,8 +1,8 @@
 var q = 0;
-var qmax = 8;
+var qmax = 7;
 var level = 0;
 var selections = [];
-var numQs = [8, 9, ]
+var numQs = [8, 9, 1]
 
 var begQuestions = [
     "Who was the first person to come up the concept of regular expressions?",
@@ -26,7 +26,7 @@ var intQuestions = [
     "What regex will match 100057.2 and 100078.2?"
 ];
 var advQuestions = [
-    ""
+    "Test"
 ];
 
 var begAnswers = [
@@ -132,14 +132,16 @@ var intAnswers = [
         "/10+[57][78].2/"
     ],
 ];
-var advAnswers = [];
+var advAnswers = [
+    "Test"
+];
 
 var begSolutions = [1, 3, 0, 1, 2, 1, 3, 1];
 var intSolutions = [0, 3, 3, 2, 1, 1, 3, 1, 3];
-var advSolutions = [];
+var advSolutions = [0];
 
 window.onload = function(){
-    setQuestion();
+    changeLevel(0);
 }
 
 function toggleButtons(){
@@ -161,7 +163,23 @@ function toggleButtons(){
 
 function nextQuestion(){
     var choice = NaN;
-    for(var i=0; i<4; i++){
+    switch(level){
+        case 0:
+            questions = begQuestions;
+            answers = begAnswers;
+            break;
+        case 1:
+            questions = intQuestions;
+            answers = intAnswers;
+            break;
+        case 2:
+            questions = advQuestions;
+            answers = advAnswers;
+            break;
+        default:
+            console.log("ERROR: Illegal Level");
+    }
+    for(var i=0; i<answers[q].length; i++){
         if(document.getElementsByName("radio")[i].checked == true){
             choice = i;
         }
@@ -181,7 +199,23 @@ function nextQuestion(){
 
 function back() {
     var choice = NaN;
-    for(var i=0; i<4; i++){
+    switch(level){
+        case 0:
+            questions = begQuestions;
+            answers = begAnswers;
+            break;
+        case 1:
+            questions = intQuestions;
+            answers = intAnswers;
+            break;
+        case 2:
+            questions = advQuestions;
+            answers = advAnswers;
+            break;
+        default:
+            console.log("ERROR: Illegal Level");
+    }
+    for(var i=0; i<answers[q].length; i++){
         if(document.getElementsByName("radio")[i].checked == true){
             choice = i;
         }
@@ -209,16 +243,20 @@ function setQuestion(){
             answers = advAnswers;
             break;
         default:
-            questions = begQuestions;
-            answers = begAnswers;
+            console.log("ERROR: Illegal Level");
     }
     document.getElementById("QNum").innerHTML = "Question " + (q+1) + ":";
     document.getElementById("Q").innerHTML = questions[q];
-    var labels = document.getElementsByClassName("customRadio");
-    for(var i=0; i<4; i++){
-        labels[i].innerHTML = answers[q][i] + '<input type="radio" name="radio"><span class="checkmark"></span>';
+
+    var form = document.getElementById("form");
+    var options = "";
+    for(var i=0; i<answers[q].length; i++){
+        options += '<label class="customRadio">' + answers[q][i] +
+          '<input type="radio" name="radio">' +
+          '<span class="checkmark"></span></label>';
     }
-    for(var i=0; i<4; i++){
+    form.innerHTML = options;
+    for(var i=0; i<answers[q].length; i++){
         document.getElementsByName("radio")[i].checked = false;
     }
     if(!isNaN(selections[q])){
@@ -253,9 +291,7 @@ function submitQuiz(){
             solutions = advSolutions;
             break;
         default:
-            questions = begQuestions;
-            answers = begAnswers;
-            solutions = begSolutions;
+            console.log("ERROR: Illegal Level");
     }
 
     var content = "";
@@ -263,9 +299,9 @@ function submitQuiz(){
         content += '<p class="description quizQuestionNum">Question ' + (i+1) + ':</p>';
         content += '<p class="description quizQuestion" id="Q">' + questions[i] + '</p>';
         if(solutions[i] == selections[i]){
-            content += '<p style="color: #2ECC71" class="description quizQuestion">Your Answer: ' + answers[i][selections[i]] + '</p>';
+            content += '<p style="color: #2ECC71" class="description quizQuestion">Your Answer: ' + answers[i][selections[i]] + ' &#10004;</p>';
         }else{
-            content += '<p style="color: #D0021B" class="description quizQuestion">Your Answer: ' + answers[i][selections[i]] + '</p>';
+            content += '<p style="color: #D0021B" class="description quizQuestion">Your Answer: ' + answers[i][selections[i]] + ' &#10008;</p>';
         }
         content += '<p style="color: #2ECC71" class="description quizQuestion">Correct Answer: ' + answers[i][solutions[i]] + '</p>';
     }
@@ -273,14 +309,14 @@ function submitQuiz(){
 }
 
 function changeLevel(selectedLevel){
-        if(level != selectedLevel){
-            level = selectedLevel;
-            q = 0;
-            selections = [];
-            qmax = numQs[level];
-            for(var i=0; i<numQs; i++){
-                selections.push(NaN);
-            }
-            // TODO: change level underine
+        level = selectedLevel;
+        q = 0;
+        selections = [];
+        qmax = numQs[level]-1;
+        for(var i=0; i<numQs; i++){
+            selections.push(NaN);
         }
+        setQuestion();
+        var titles = ["Basic Quiz: Introduction to RegEx", "Intermediate Quiz: Getting Familiar", "Advanced Quiz: RegEx Mastery"]
+        document.getElementById("quizTitle").innerHTML = titles[level];
 }
