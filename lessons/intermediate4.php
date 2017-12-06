@@ -1,0 +1,19 @@
+<h1 class="header">Lesson 4: Greedy Operators</h1>
+<div class="readable">
+    <p>Suppose you want to use a regex to match an HTML tag. You know that the input will be a valid HTML file, so the regular expression does not need to exclude any invalid use of sharp brackets. If it sits between sharp brackets, it is an HTML tag.</p>
+
+    <p>Most people new to regular expressions will attempt to use <code><.+></code>. They will be surprised when they test it on a string like <code>This is a &lt;EM&gt;first&lt;/EM&gt; test</code>. You might expect the regex to match <code>&lt;EM&gt;</code> and when continuing after that match, <code>&lt;/EM&gt;</code>.</p>
+
+    <p>But it does not. The regex will match <code>&lt;EM&gt;first&lt;/EM&gt;</code>. Obviously not what we wanted. The reason is that the plus is <em>greedy</em>. That is, the plus causes the regex engine to repeat the preceding token as often as possible. Only if that causes the entire regex to fail, will the regex engine backtrack. That is, it will go back to the plus, make it give up the last iteration, and proceed with the remainder of the regex. Let's take a look inside the regex engine to see in detail how this works and why this causes our regex to fail. After that, I will present you with two possible solutions.</p>
+
+    <p>Like the plus, the star and the repetition using curly braces are greedy.</p>
+
+    <p>The first token in the regex is <code><</code>. This is a literal. As we already know, the first place where it will match is the first <code><</code> in the string. The next token is the dot, which matches any character except newlines. The dot is repeated by the plus. The plus is greedy. Therefore, the engine will repeat the dot as many times as it can. The dot matches <code>E</code>, so the regex continues to try to match the dot with the next character. <code>M</code> is matched, and the dot is repeated once more. The next character is the <code>></code>. You should see the problem by now. The dot matches the <code>></code>, and the engine continues repeating the dot. The dot will match all remaining characters in the string. The dot fails when the engine has reached the void after the end of the string. Only at this point does the regex engine continue with the next token: <code>></code>.</p>
+
+    <p>So far, <code><.+</code> has matched <code>&lt;EM&gt;first&lt;/EM&gt; test</code> and the engine has arrived at the end of the string. <code>></code> cannot match here. The engine remembers that the plus has repeated the dot more often than is required. (Remember that the plus requires the dot to match only once.) Rather than admitting failure, the engine will backtrack. It will reduce the repetition of the plus by one, and then continue trying the remainder of the regex.</p>
+
+    <p>So the match of <code>.+</code> is reduced to <code>EM&gt;first&lt;/EM&gt; tes</code>. The next token in the regex is still <code>></code>. But now the next character in the string is the last <code>t</code>. Again, these cannot match, causing the engine to backtrack further. The total match so far is reduced to <code>&lt;EM&gt;first&lt;/EM&gt; te</code>. But <code>></code> still cannot match. So the engine continues backtracking until the match of <code>.+</code> is reduced to <code>EM&gt;first&lt;/EM</code>. Now, <code>></code> can match the next character in the string. The last token in the regex has been matched. The engine reports that <code>&lt;EM&gt;first&lt;/EM&gt;</code> has been successfully matched.</p>
+
+    <p>Remember that the regex engine is eager to return a match. It will not continue backtracking further to see if there is another possible match. It will report the first valid match it finds. Because of greediness, this is the leftmost longest match.</p>
+
+</div>
