@@ -29,7 +29,16 @@ var intQuestions = [
     "What does /A{1,2} bonds/ mach?"
 ];
 var advQuestions = [
-    "Test"
+    "Regular expression <code>(x/y)(x/y)</code> denotes the set:",
+    "Regular expression <code>x/y</code> denotes the set:",
+    "The regular expression that denotes zero or more instances of an x or y is:",
+    "Which of the following pairs of regular expressions are equivalent?",
+    "The set of all strings over ∑ = {a,b} in which all strings having bbbb as substring is",
+    "The string (a)|((b)*(c)) is equivalent to",
+    "What will match <code>(?>\\d\\w{2}|12)c</code>?",
+    "What will match <code>(?>a|b)*ac</code>?",
+    "What will match <code>(abc|def)=\\1</code>?",
+    "What will be the output?<br/><code>x = '\\b[Dd].+?\\b'<br/>s = 'Definitely depressed, David is down in the dungeon.'<br/>re.findall( x, s )</code>"
 ];
 
 var begAnswers = [
@@ -154,12 +163,71 @@ var intAnswers = [
     ]
 ];
 var advAnswers = [
-    "Test"
+    [
+        "{xy,xy}",
+        "{xx,xy,yx,yy}",
+        "{x,y}",
+        "{x,y,xy}"
+    ],
+    [
+        "{x,y}",
+        "{xy}",
+        "{x}",
+        "{y}"
+    ],
+    [
+        "(x+y)",
+        "(x+y)*",
+        "(x* + y)",
+        "(xy)*"
+    ],
+    [
+        "1(01)* and (10)*1",
+        "X(xx)* and (xx)*x",
+        "All of the mentioned",
+        "None of the mentioned"
+    ],
+    [
+        "(a+b)* bbbb (a+b)*",
+        "(a+b)* bb (a+b)*bb",
+        "bbb(a+b)*",
+        "bb (a+b)*"
+    ],
+    [
+        "Empty",
+        "abcabc",
+        " b*c|a",
+        "None of the mentioned"
+    ],
+    [
+        "12c",
+        "12",
+        "2c",
+        "c"
+    ],
+    [
+        "aab",
+        "aabaac",
+        "baac",
+        "abac"
+    ],
+    [
+        "def=abc.",
+        "abc=abc",
+        "abc=def",
+        "de=f"
+    ],
+    [
+        "[Definitely depressed, David is down in the dungeon]",
+        "['depressed', 'David', 'down', ']",
+        "['Definitely', 'depressed', 'David', 'down', 'dungeon']",
+        "None of the mentioned"
+    ]
 ];
 
 var begSolutions = [1, 3, 0, 1, 2, 1, 3, 1];
 var intSolutions = [0, 3, 3, 2, 1, 1, 3, 1, 3, 2, 1, 3];
-var advSolutions = [0];
+var advSolutions = [1, 0, 1, 2, 0, 2, 0, 1, 1, 2];
 
 window.onload = function(){
     changeLevel(0);

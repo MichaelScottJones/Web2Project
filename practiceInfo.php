@@ -26,24 +26,7 @@
     <p class="description quizQuestion" id="Q">This is filler text that you should not be seeing in prod! </p>
 
 
-    <form id="form">
-        <label class="customRadio" id="Ans0" onclick="selectAnswer(0);">First answer
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-        <label class="customRadio" id="Ans1" onclick="selectAnswer(1);">Second answer
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-        <label class="customRadio" id="Ans2" onclick="selectAnswer(2);">Third answer
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-        <label class="customRadio" id="Ans3" onclick="selectAnswer(3);">Fourth answer
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-    </form>
+    <form id="form"></form>
 
     <div class="quizButtonDiv">
     <button type="button" onclick="nextQuestion();" class="nextButton" id="next">Next</button>

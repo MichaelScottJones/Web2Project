@@ -1,33 +1,262 @@
 var q = 0;
-var qmax = 1;
+var qmax;
 
 var begQuestions = [
-    "Which of the following matches regexp <code>/a(ab)*a/</code>",
-    "Which of the following matches regexp <code>/ab+c/?</code>",
+    [
+        "Does RegEx work with most programming languages?"
+    ],
+    [
+        "What matches <code>/tree/</code>?",
+        "What matches <code>/Dog/</code>?"
+    ],
+    [
+        "What regex matches /192.168.1.101/?",
+        "What regex matches: Did he go to Florida?"
+    ],
+    [
+        "What does <code>/h.t/</code> match?"
+    ]
+
 ];
-var intQuestions = [];
-var advQuestions = [];
+var intQuestions = [
+    [
+        "What shorthand character set matches whitespace?",
+        "What POSIX bracket expression matches Letters, numbers, and underscores?",
+        "What matches with <code>/[0-57]/</code>?"
+    ],
+    [
+        "What matches the regex <code>/pears*/</code>?",
+        "What regex will match with mississippi?"
+    ],
+    [
+        "What does the following regex match <code>\\d{4,}</code>",
+        "What does the following regex match <code>\\d{5}</code>"
+    ]
+];
+var advQuestions = [
+    [
+        "Shorthand used to reference a capturing group.",
+        "Using a backreference, what is a way to find two back to back characters?"
+    ],
+    [
+        "Which character matches any position that is not a word boundary.",
+        "Which character matches a word boundary position such as whitespace or the beginning or end of the string."
+    ],
+    [
+        "What will match  <code>#a(?>bc|c)c#</code> ?",
+        "What will match <code>a(?>bc|b)c</code> ?"
+    ],
+    [
+        "What will match <code>/a(?:(?R)|a?)a/</code>?",
+        "What will match <code>a(?0)?z</code>?"
+    ],
+    [
+        "Which function is used to make a callback?",
+        "What type is returned by preg_replace_callback()?"
+    ],
+    [
+        "How do you comment using free-spacing mode?",
+        "What is represented by [] in the expression <code>/d(?#comment)[ ](?#comment)w+(?#comment)/</code>?"
+    ]
+];
 
 var begAnswers = [
     [
-        "abababa",
-        "aaba",
-        "aabbaa",
-        "aba"
+        [
+            "Yes",
+            "No"
+        ]
     ],
     [
-        "abc",
-        "ac",
-        "abbb",
-        "bbc"
+        [
+            "Tree",
+            "tree",
+            "free"
+        ],
+        [
+            "dog",
+            "Dog",
+            "cat",
+            "DOG"
+        ]
     ],
+    [
+        [
+            "/192.168.1.101/",
+            "/192\\.168\\.1\\.101/",
+            "/192\\.168.1\\.101/"
+        ],
+        [
+            "/Did he go to Florida\\?/",
+            "/Did he go to Florida?/",
+            "/\\Did he go to \\Florida?/"
+        ]
+    ],
+    [
+        [
+            "hat",
+            "hot",
+            "heat",
+            "Both a and b"
+        ]
+    ]
 ];
-var intAnswers = [];
-var advAnswers = [];
+var intAnswers = [
+    [
+        [
+            "/S",
+            "/w",
+            "/s",
+            "/W"
+        ],
+        [
+            "[:alpha]",
+            "[:word:]",
+            "[:xdigit:]",
+            "[:print:]"
+        ],
+        [
+            "7",
+            "45",
+            "67",
+            "6"
+        ]
+    ],
+    [
+        [
+            "pear",
+            "pears",
+            "pearssss",
+            "All of the above"
+        ],
+        [
+            "Mis*is*ipp*i",
+            "mississippi+",
+            "mis+is*ip?i*",
+            "mi+s*is*ip*i"
+        ]
+    ],
+    [
+        [
+            "Numbers with exactly four digits",
+            "Numbers with 4 or less digits",
+            "Numbers with 4 or more digits",
+            "Numbers with 3 or less digits"
+        ],
+        [
+            "12345",
+            "12345678",
+            "1234",
+            "A and B"
+        ]
+    ]
+];
+var advAnswers = [
+    [
+        [
+            "Lazy operator",
+            "Anchor",
+            "Greedy operator",
+            "Backreferences"
+        ],
+        [
+            "(.)\\1",
+            "()1",
+            ".\\1",
+            "()\\1"
+        ]
+    ],
+    [
+        [
+            "?B",
+            "/d",
+            "/b",
+            "/B"
+        ],
+        [
+            "/B",
+            "?b",
+            "/D",
+            "/b"
+        ]
+    ],
+    [
+        [
+            "bc",
+            "abc",
+            "None of these",
+            "abcc"
+        ],
+        [
+            "abcc",
+            "Abc",
+            "Bbc",
+            "bcb"
+        ]
+    ],
+    [
+        [
+            "bbaa",
+            "aaaa",
+            "A",
+            "aaabbaa"
+        ],
+        [
+            "azz",
+            "aaz",
+            "aazz",
+            "aaazz"
+        ]
+    ],
+    [
+        [
+            "preg_callback()",
+            "preg_replace_callback()",
+            "replace_callback()",
+            "None of the above"
+        ],
+        [
+            "array",
+            "function",
+            "None of these",
+            "string"
+        ]
+    ],
+    [
+        [
+            "(?#comment)",
+            "(#comment)",
+            "(?comment)",
+            "(?/comment/#)"
+        ],
+        [
+            "Word",
+            "Digit",
+            "Space",
+            "None of the above"
+        ]
+    ]
+];
 
-var begSolutions = [1, 0];
-var intSolutions = [];
-var advSolutions = [];
+var begSolutions = [
+    [0],
+    [1, 1],
+    [1, 0],
+    [3]
+];
+var intSolutions = [
+    [2,1,0],
+    [3,2],
+    [2,0]
+];
+var advSolutions = [
+    [3,0],
+    [3,3],
+    [3,0],
+    [1,2],
+    [1,3],
+    [0,2]
+];
 
 window.onload = function(){
     document.getElementById("navPractice").className = "navButton current";
