@@ -43,6 +43,6 @@
     <button type="button" onclick="back();" class="backButton" id="back" disabled="true" style="background: #cccccc">Back</button>
     </div>
 
-    <button type="button" onclick="window.location.href='practice.php'" class="backButton" style="bottom: 0;">Exit Practice</button>
+    <button type="button" onclick="window.location.href='practice.php'" class="backButton" style="margin-top: 100px;">Exit Practice</button>
 
 <?php 	include_once("footer.inc.php"); ?>
