@@ -23,7 +23,10 @@ var intQuestions = [
     "What is the character set equivalent to the POSIX bracket expression [:alnum:]",
     "What matches the regex <code>/dogs?/</code>?",
     "What regex will match with 'moose'?",
-    "What regex will match 100057.2 and 100078.2?"
+    "What regex will match 100057.2 and 100078.2?",
+    "What is the following quantified repetition character equivalent to? \\d{1,}",
+    "How would I match only most U.S.phone numbers",
+    "What does /A{1,2} bonds/ mach?"
 ];
 var advQuestions = [
     "Test"
@@ -131,13 +134,31 @@ var intAnswers = [
         "/1*[57][78]\.2/",
         "/10+[57][78].2/"
     ],
+    [
+        "[0-6]+",
+        "\\d",
+        "\d+",
+        "None of the above"
+    ],
+    [
+        "\\d{10}",
+        "/\\d{3}-\\d{3}-\\d{4}/",
+        "/\\d{3}-\\d{3,}-\\d{4}/",
+        "All of the above"
+    ],
+    [
+        "A bonds",
+        "AA bonds",
+        "AAA bonds",
+        "A and B"
+    ]
 ];
 var advAnswers = [
     "Test"
 ];
 
 var begSolutions = [1, 3, 0, 1, 2, 1, 3, 1];
-var intSolutions = [0, 3, 3, 2, 1, 1, 3, 1, 3];
+var intSolutions = [0, 3, 3, 2, 1, 1, 3, 1, 3, 2, 1, 3];
 var advSolutions = [0];
 
 window.onload = function(){
