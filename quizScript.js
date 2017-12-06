@@ -319,4 +319,20 @@ function changeLevel(selectedLevel){
         setQuestion();
         var titles = ["Basic Quiz: Introduction to RegEx", "Intermediate Quiz: Getting Familiar", "Advanced Quiz: RegEx Mastery"]
         document.getElementById("quizTitle").innerHTML = titles[level];
+        document.getElementById("navAdv").className = "navButton last local";
+        document.getElementById("navInt").className = "navButton local";
+        document.getElementById("navBeg").className = "navButton local";
+        switch (level) {
+            case 0:
+                document.getElementById("navBeg").className += " current";
+                break;
+            case 1:
+                document.getElementById("navInt").className += " current";
+                break;
+            case 2:
+                document.getElementById("navAdv").className += " current";
+                break;
+            default:
+                console.log("ERROR: Illegal Level");
+        }
 }
