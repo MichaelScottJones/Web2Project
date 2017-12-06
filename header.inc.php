@@ -32,8 +32,8 @@
             <ul class="navLinks">
               <li><a href="references.php" class="navButton last <?= thisPage("references") ?>">Reference</a></li>
               <li><a href="quizzes.php" class="navButton <?= thisPage("quizzes") ?>">Quizzes</a></li>
-              <li><a href="practice.php" class="navButton <?= thisPage("practice") ?><?= thisPage("practiceInfo") ?>">Practice</a></li>
-              <li><a href="lessons.php" class="navButton <?= thisPage("lessons") ?><?= thisPage("lessonInfo") ?>">Lessons</a></li>
+              <li><a href="practice.php" class="navButton <?= thisPage("practice") ?><?= thisPage("practiceInfo") ?>" id="navPractice">Practice</a></li>
+              <li><a href="lessons.php" class="navButton <?= thisPage("lessons") ?><?= thisPage("lessonInfo") ?>" id="navLessons">Lessons</a></li>
               <li><a href="index.php" class="navButton <?= thisPage("index") ?>">Home</a></li>
               <li style="float:left"><a href="index.php" class="title">RegEx</a></li>
             </ul>

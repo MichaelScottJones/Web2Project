@@ -31,6 +31,7 @@ var advSolutions = [];
 
 window.onload = function(){
     setQuestion();
+    document.getElementById("navPractice").className = "navButton current";
 }
 
 function toggleButtons(){
