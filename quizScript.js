@@ -1,40 +1,141 @@
 var q = 0;
-var qmax = 2;
-var selections = [NaN, NaN, NaN];
+var qmax = 8;
+var level = 0;
+var selections = [];
+var numQs = [8, 9, ]
 
 var begQuestions = [
-    "Which of the following matches regexp /a.[bc]+/",
-    "Which of the following matches regexp /abc|xyz/",
-    "Which of the following matches regexp /[a-z]+[\.\?!]/"
+    "Who was the first person to come up the concept of regular expressions?",
+    "A Regular Expression is a string of text called a _____?",
+    "True or False, regex is case sensitive by default",
+    "What matches <code>/header/</code>?",
+    "What regex matches '5+2=7'?",
+    "What regex matches 'D:\Users\Documents\myregex.txt'",
+    "What does <code>/9.00/</code> match?",
+    "How do I match banana?"
 ];
-var intQuestions = [];
-var advQuestions = [];
+var intQuestions = [
+    "What shorthand character set matches a digit?",
+    "What POSIX bracket expression matches hexadecimals?",
+    "What matches with <code>/gr[ea]y/</code>?",
+    "How do you match any one vowel?",
+    "How many strings are matched with the regex <code>/c[aeiou]t/g</code> and the string “The cow, camel, and cat all fit into the category: animals.” (The g at the end tells the regex engine to search globally, for all instances)",
+    "What is the character set equivalent to the POSIX bracket expression [:alnum:]",
+    "What matches the regex <code>/dogs?/</code>?",
+    "What regex will match with 'moose'?",
+    "What regex will match 100057.2 and 100078.2?"
+];
+var advQuestions = [
+    ""
+];
 
 var begAnswers = [
     [
-        "abcz",
-        "abbbbbbbb",
-        "az45c",
-        "ac"
+        "Tim Berners-Lee",
+        "Steven Cole King",
+        "Rob Lewis",
+        "Douglas Englebart"
     ],
     [
-        "abcxyz",
-        "xyz",
-        "abc|xyz",
-        "abzxyc"
+        "Strings",
+        "Characters",
+        "Metacharacters",
+        "Pattern"
     ],
     [
-        "Hot",
-        "green",
-        "swamping.",
-        "jump up."
+        "True",
+        "False"
+    ],
+    [
+        "Header",
+        "header",
+        "feeder"
+    ],
+    [
+        "/5 + 2 = 7/",
+        "/\5\+\2\=\7/",
+        "/5\+2=7/",
+        "/5+2=7/"
+    ],
+    [
+        "/D\:\Users\Documents\myregex\.txt/",
+        "/D:\\Users\\Documents\\myregex\.txt/",
+        "/D:\\Users\\Documents\\myregex.txt/",
+        "/D:\Users\Documents\myregex.txt/"
+    ],
+    [
+        "9500",
+        "9.00",
+        "9 00",
+        "All of the above"
+    ],
+    [
+        "ba*a*a",
+        ".a.a.a",
+        "\.a\.a\.a",
+        "a.a.a."
     ]
 ];
-var intAnswers = [];
+var intAnswers = [
+    [
+        "/d",
+        "/W",
+        "/D",
+        "/s"
+    ],
+    [
+        "[:alpha:]",
+        "[:digit:]",
+        "[:graph:]",
+        "[:xdigit:]"
+    ],
+    [
+        "grey",
+        "great",
+        "gray",
+        "Both a and c"
+    ],
+    [
+        "/aeiou/",
+        "/[a-e-i-o-u]/",
+        "/[aeiou]/",
+        "None of the above"
+    ],
+    [
+        "1",
+        "2",
+        "3",
+        "4"
+    ],
+    [
+        "[a-zA-Z]",
+        "[A-Za-z0-9]",
+        "[a-z0-9]",
+        "[a-z]"
+    ],
+    [
+        "dog",
+        "dogs",
+        "dogssssss",
+        "Both a and b"
+    ],
+    [
+        "/moo+se/",
+        "/mo*se/",
+        "/m++se/",
+        "/moos?/"
+    ],
+    [
+        "/1*57\.2/",
+        "/10*[57-78]\.2/",
+        "/1*[57][78]\.2/",
+        "/10+[57][78].2/"
+    ],
+];
 var advAnswers = [];
 
-var begSolutions = [1, 1, 2];
-var intSolutions = [];
+var begSolutions = [1, 3, 0, 1, 2, 1, 3, 1];
+var intSolutions = [0, 3, 3, 2, 1, 1, 3, 1, 3];
 var advSolutions = [];
 
 window.onload = function(){
@@ -92,11 +193,30 @@ function back() {
 }
 
 function setQuestion(){
+    var questions,
+        answers;
+    switch(level){
+        case 0:
+            questions = begQuestions;
+            answers = begAnswers;
+            break;
+        case 1:
+            questions = intQuestions;
+            answers = intAnswers;
+            break;
+        case 2:
+            questions = advQuestions;
+            answers = advAnswers;
+            break;
+        default:
+            questions = begQuestions;
+            answers = begAnswers;
+    }
     document.getElementById("QNum").innerHTML = "Question " + (q+1) + ":";
-    document.getElementById("Q").innerHTML = begQuestions[q];
+    document.getElementById("Q").innerHTML = questions[q];
     var labels = document.getElementsByClassName("customRadio");
     for(var i=0; i<4; i++){
-        labels[i].innerHTML = begAnswers[q][i] + '<input type="radio" name="radio"><span class="checkmark"></span>';
+        labels[i].innerHTML = answers[q][i] + '<input type="radio" name="radio"><span class="checkmark"></span>';
     }
     for(var i=0; i<4; i++){
         document.getElementsByName("radio")[i].checked = false;
@@ -113,17 +233,54 @@ function submitQuiz(){
     document.getElementById("back").innerHTML = "Start Over";
     document.getElementById("back").onclick = function(){location.reload();};
 
+    var questions,
+        answers,
+        solutions;
+    switch(level){
+        case 0:
+            questions = begQuestions;
+            answers = begAnswers;
+            solutions = begSolutions;
+            break;
+        case 1:
+            questions = intQuestions;
+            answers = intAnswers;
+            solutions = intSolutions;
+            break;
+        case 2:
+            questions = advQuestions;
+            answers = advAnswers;
+            solutions = advSolutions;
+            break;
+        default:
+            questions = begQuestions;
+            answers = begAnswers;
+            solutions = begSolutions;
+    }
 
     var content = "";
     for(var i=0; i<=qmax; i++){
         content += '<p class="description quizQuestionNum">Question ' + (i+1) + ':</p>';
-        content += '<p class="description quizQuestion" id="Q">' + begQuestions[i] + '</p>';
-        if(begSolutions[i] == selections[i]){
-            content += '<p style="color: #2ECC71" class="description quizQuestion">Your Answer: ' + begAnswers[i][selections[i]] + '</p>';
+        content += '<p class="description quizQuestion" id="Q">' + questions[i] + '</p>';
+        if(solutions[i] == selections[i]){
+            content += '<p style="color: #2ECC71" class="description quizQuestion">Your Answer: ' + answers[i][selections[i]] + '</p>';
         }else{
-            content += '<p style="color: #D0021B" class="description quizQuestion">Your Answer: ' + begAnswers[i][selections[i]] + '</p>';
+            content += '<p style="color: #D0021B" class="description quizQuestion">Your Answer: ' + answers[i][selections[i]] + '</p>';
         }
-        content += '<p style="color: #2ECC71" class="description quizQuestion">Correct Answer: ' + begAnswers[i][begSolutions[i]] + '</p>';
+        content += '<p style="color: #2ECC71" class="description quizQuestion">Correct Answer: ' + answers[i][solutions[i]] + '</p>';
     }
     document.getElementById("form").innerHTML = content;
+}
+
+function changeLevel(selectedLevel){
+        if(level != selectedLevel){
+            level = selectedLevel;
+            q = 0;
+            selections = [];
+            qmax = numQs[level];
+            for(var i=0; i<numQs; i++){
+                selections.push(NaN);
+            }
+            // TODO: change level underine
+        }
 }

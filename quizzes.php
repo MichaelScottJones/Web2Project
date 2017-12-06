@@ -6,9 +6,9 @@
 
         <div class="localNavBar">
             <ul class="navLinks">
-              <li><a href="" class="navButton last local">Advanced</a></li>
-              <li><a href="" class="navButton local">Intermediate</a></li>
-              <li><a href="" class="navButton current local">Beginner</a></li>
+              <li><a href="" class="navButton last local" onclick="changeLevel(2);">Advanced</a></li>
+              <li><a href="" class="navButton local" onclick="changeLevel(1);">Intermediate</a></li>
+              <li><a href="" class="navButton current local" onclick="changeLevel(0);">Beginner</a></li>
               <li style="float:left"><a href="" class="localTitle">Quizzes </a></li>
             </ul>
         </div>
