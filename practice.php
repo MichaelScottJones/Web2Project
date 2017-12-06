@@ -6,7 +6,7 @@
 	var sectionTitle = [
 		"Basic Practice",
 		"Intermediate Practice",
-		"AdvancedPractice"
+		"Advanced Practice"
 	]
 	var practiceTitle = [
 		[
@@ -30,7 +30,7 @@
 		]
 	]
 	function post(lesson){
-
+		
 	}
 
 	function generateLessons(l){

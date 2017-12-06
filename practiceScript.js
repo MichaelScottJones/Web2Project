@@ -30,8 +30,12 @@ var intSolutions = [];
 var advSolutions = [];
 
 window.onload = function(){
-    setQuestion();
     document.getElementById("navPractice").className = "navButton current";
+    if(document.getElementById("level") != null){
+        level = document.getElementById("level").value;
+        q = document.getElementById("lesson").value;
+    }
+    setQuestion();
 }
 
 function toggleButtons(){

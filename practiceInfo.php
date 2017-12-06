@@ -1,5 +1,12 @@
 <?php
 	include_once("header.inc.php");
+
+	if(!empty($_POST)){
+		$level = $_POST["level"];
+		$practice = $_POST["practice"];
+		echo '<input type="hidden" id="level" value="' . $level . '"></input>';
+		echo '<input type="hidden" id="practice" value="' . $practice . '"></input>';
+	}
 ?>
 <script src="practiceScript.js">
 </script>
