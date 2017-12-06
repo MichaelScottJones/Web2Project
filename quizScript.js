@@ -2,7 +2,7 @@ var q = 0;
 var qmax = 7;
 var level = 0;
 var selections = [];
-var numQs = [8, 12, 1]
+var numQs = [8, 12, 10]
 
 var begQuestions = [
     "Who was the first person to come up the concept of regular expressions?",
