@@ -10,7 +10,7 @@ var begQuestions = [
     "True or False, regex is case sensitive by default",
     "What matches <code>/header/</code>?",
     "What regex matches '5+2=7'?",
-    "What regex matches 'D:\Users\Documents\myregex.txt'",
+    "What regex matches 'D:\\Users\\Documents\\myregex.txt'",
     "What does <code>/9.00/</code> match?",
     "How do I match banana?"
 ];
@@ -65,15 +65,15 @@ var begAnswers = [
     ],
     [
         "/5 + 2 = 7/",
-        "/\5\+\2\=\7/",
-        "/5\+2=7/",
+        "/\\5\\+\\2\=\\7/",
+        "/5\\+2=7/",
         "/5+2=7/"
     ],
     [
-        "/D\:\Users\Documents\myregex\.txt/",
+        "/D\\:\\Users\\Documents\\myregex\\.txt/",
         "/D:\\Users\\Documents\\myregex\.txt/",
         "/D:\\Users\\Documents\\myregex.txt/",
-        "/D:\Users\Documents\myregex.txt/"
+        "/D:\\Users\\Documents\\myregex.txt/"
     ],
     [
         "9500",
@@ -84,7 +84,7 @@ var begAnswers = [
     [
         "ba*a*a",
         ".a.a.a",
-        "\.a\.a\.a",
+        "\\.a\\.a\\.a",
         "a.a.a."
     ]
 ];
@@ -138,15 +138,15 @@ var intAnswers = [
         "/moos?/"
     ],
     [
-        "/1*57\.2/",
-        "/10*[57-78]\.2/",
-        "/1*[57][78]\.2/",
+        "/1*57\\.2/",
+        "/10*[57-78]\\.2/",
+        "/1*[57][78]\\.2/",
         "/10+[57][78].2/"
     ],
     [
         "[0-6]+",
         "\\d",
-        "\d+",
+        "\\d+",
         "None of the above"
     ],
     [
@@ -394,7 +394,8 @@ function submitQuiz(){
         }
         content += '<p style="color: #2ECC71" class="description quizQuestion">Correct Answer: ' + answers[i][solutions[i]] + '</p>';
     }
-    document.getElementById("form").innerHTML = content;
+    document.getElementById("feedback").innerHTML = content;
+    document.getElementById("form").innerHTML = "";
 }
 
 function changeLevel(selectedLevel){
@@ -424,4 +425,9 @@ function changeLevel(selectedLevel){
             default:
                 console.log("ERROR: Illegal Level");
         }
+        document.getElementById("QNum").style.display = "block";
+        document.getElementById("Q").style.display = "block";
+        document.getElementById("next").style.display = "block";
+        document.getElementById("back").innerHTML = "Back";
+        document.getElementById("feedback").innerHTML = "";
 }

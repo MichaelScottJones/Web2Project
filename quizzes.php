@@ -15,30 +15,13 @@
     </nav>
 
     <h1 class="header" id="quizTitle"></h1>
-    <p class="description quizQuestionNum" id="QNum">Question 1:</p>
-    <p class="description quizQuestion" id="Q">This is filler text that you should not be seeing in prod! </p>
+    <p class="description quizQuestionNum" id="QNum"></p>
+    <p class="description quizQuestion" id="Q"></p>
 
 	<div id="feedback"></div>
 
 
-    <form id="form">
-        <label class="customRadio">First answer
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-        <label class="customRadio">Second answer
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-        <label class="customRadio">Third answer
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-        <label class="customRadio" >Fourth answer
-          <input type="radio" name="radio">
-          <span class="checkmark"></span>
-        </label>
-    </form>
+    <form id="form"></form>
 
     <div class="quizButtonDiv">
     <button type="button" onclick="nextQuestion();" class="nextButton" id="next">Next</button>

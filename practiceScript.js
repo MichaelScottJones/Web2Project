@@ -1,7 +1,8 @@
 var q = 0;
 var level = 0;
 var practice = 0;
-var qmax = 1;
+var qmax = 0;
+var answered = 0;
 
 var begQuestions = [
     [
@@ -365,6 +366,7 @@ function back() {
 }
 
 function setQuestion(){
+    answered = 0;
     var answers;
     var questions;
     switch(level){
@@ -396,25 +398,29 @@ function setQuestion(){
 }
 
 function selectAnswer(choice){
-    switch(level){
-        case 0:
-            solutions = begSolutions;
-            break;
-        case 1:
-            solutions = intSolutions;
-            break;
-        case 2:
-            solutions = advSolutions;
-            break;
-        default:
-            console.log('ERROR: Illegal level')
+    if(answered == 0){
+        switch(level){
+            case 0:
+                solutions = begSolutions;
+                break;
+            case 1:
+                solutions = intSolutions;
+                break;
+            case 2:
+                solutions = advSolutions;
+                break;
+            default:
+                console.log('ERROR: Illegal level')
+        }
+        document.getElementById("Ans"+solutions[practice][q]).style.color = "#2ECC71";
+        document.getElementById("Ans"+solutions[practice][q]).innerHTML += " &#10004;";
+        if(choice != solutions[practice][q]){
+            document.getElementById("Ans"+choice).style.color = "#D0021B";
+            document.getElementById("Ans"+choice).innerHTML += " &#10008;";
+        }
+        answered = 1;
     }
-    document.getElementById("Ans"+solutions[practice][q]).style.color = "#2ECC71";
-    document.getElementById("Ans"+solutions[practice][q]).innerHTML += " &#10004;";
-    if(choice != solutions[practice][q]){
-        document.getElementById("Ans"+choice).style.color = "#D0021B";
-        document.getElementById("Ans"+choice).innerHTML += " &#10008;";
-    }
+
 }
 
 function setPractice(l, p){
@@ -451,6 +457,7 @@ function setPractice(l, p){
             console.log("ERROR: Illegal Level");
     }
     setQuestion();
+    toggleButtons();
 }
 
 function navigateLevel(level){

@@ -7,6 +7,9 @@
 		echo '<input type="hidden" id="level" value="' . $level . '"></input>';
 		echo '<input type="hidden" id="practice" value="' . $practice . '"></input>';
 	}
+	else{
+		header( 'Location: practice.php' ) ;
+	}
 ?>
 <script src="practiceScript.js"></script>
 <script>
@@ -17,6 +20,9 @@ window.onload = function(){
         practice = document.getElementById("practice").value * 1.0;
 		setPractice(level, practice);
     }
+	else{
+		console.log("ERROR: no practice specified")
+	}
 }
 </script>
         <div class="localNavBar">
