@@ -1,5 +1,7 @@
 var q = 0;
-var qmax;
+var level = 0;
+var practice = 0;
+var qmax = 1;
 
 var begQuestions = [
     [
@@ -258,13 +260,77 @@ var advSolutions = [
     [0,2]
 ];
 
-window.onload = function(){
-    document.getElementById("navPractice").className = "navButton current";
-    if(document.getElementById("level") != null){
-        level = document.getElementById("level").value;
-        q = document.getElementById("lesson").value;
+var sectionTitle = [
+    "Basic Practice",
+    "Intermediate Practice",
+    "Advanced Practice"
+]
+var practiceTitle = [
+    [
+        "Introduction to RegEx",
+        "Literal Characters",
+        "Metacharacters",
+        "Special Characters, Wildcard"
+    ],
+    [
+        "Character Sets",
+        "Repetition Metacharacters",
+        "Quantified Repetition"
+    ],
+    [
+        "Back Referencing",
+        "Word Boundaries",
+        "Atomic Group",
+        "Recursion",
+        "Callbacks",
+        "Commenting"
+    ]
+]
+
+function post(practice){
+    var form = document.createElement("form");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "practiceInfo.php");
+    var hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "practice");
+    hiddenField.setAttribute("value", practice);
+    var hiddenField2 = document.createElement("input");
+    hiddenField2.setAttribute("type", "hidden");
+    hiddenField2.setAttribute("name", "level");
+    hiddenField2.setAttribute("value", level);
+
+    form.appendChild(hiddenField);
+    form.appendChild(hiddenField2);
+    document.body.appendChild(form);
+    form.submit();
+}
+
+function generateLessons(l){
+    level = l;
+    content = "";
+    for(var i=0; i<practiceTitle[level].length; i++){
+        content += '<p class="description">Practice ' + (i+1) + ": " + practiceTitle[level][i] + '</p>';
+        content += '<button type="button" onclick="post(' + i + ')" class="smallGreenButton">Go</button>';
     }
-    setQuestion();
+    document.getElementById("practiceLinks").innerHTML = content;
+    document.getElementById("header").innerHTML = sectionTitle[level];
+    document.getElementById("navAdv").className = "navButton last local";
+    document.getElementById("navInt").className = "navButton local";
+    document.getElementById("navBeg").className = "navButton local";
+    switch (level) {
+        case 0:
+            document.getElementById("navBeg").className += " current";
+            break;
+        case 1:
+            document.getElementById("navInt").className += " current";
+            break;
+        case 2:
+            document.getElementById("navAdv").className += " current";
+            break;
+        default:
+            console.log("ERROR: Illegal Level");
+    }
 }
 
 function toggleButtons(){
@@ -299,21 +365,104 @@ function back() {
 }
 
 function setQuestion(){
+    var answers;
+    var questions;
+    switch(level){
+        case 0:
+            answers = begAnswers;
+            questions = begQuestions;
+            break;
+        case 1:
+            answers = intAnswers;
+            questions = intQuestions;
+            break;
+        case 2:
+            answers = advAnswers;
+            questions = advQuestions;
+            break;
+        default:
+            console.log('ERROR: Illegal level')
+    }
+
     document.getElementById("QNum").innerHTML = "Question " + (q+1) + ":";
-    document.getElementById("Q").innerHTML = begQuestions[q];
-    var labels = document.getElementsByClassName("customRadio");
-    for(var i=0; i<4; i++){
-        labels[i].innerHTML = begAnswers[q][i] + '<input type="radio" name="radio"><span class="checkmark"></span>';
-        labels[i].style.color = "#4A4A4A";
+    document.getElementById("Q").innerHTML = questions[practice][q];
+    var form = document.getElementById("form");
+    var content = "";
+    for(var i=0; i<answers[practice][q].length; i++){
+        content += '<label class="customRadio" id="Ans' + i + '"onclick="selectAnswer(' + i +');">' + answers[practice][q][i] +
+          '<input type="radio" name="radio"><span class="checkmark"></span></label>';
     }
-    for(var i=0; i<4; i++){
-        document.getElementsByName("radio")[i].checked = false;
-    }
+    form.innerHTML = content;
 }
 
 function selectAnswer(choice){
-    document.getElementById("Ans"+begSolutions[q]).style.color = "#2ECC71";
-    if(choice != begSolutions[q]){
-        document.getElementById("Ans"+choice).style.color = "#D0021B";
+    switch(level){
+        case 0:
+            solutions = begSolutions;
+            break;
+        case 1:
+            solutions = intSolutions;
+            break;
+        case 2:
+            solutions = advSolutions;
+            break;
+        default:
+            console.log('ERROR: Illegal level')
     }
+    document.getElementById("Ans"+solutions[practice][q]).style.color = "#2ECC71";
+    document.getElementById("Ans"+solutions[practice][q]).innerHTML += " &#10004;";
+    if(choice != solutions[practice][q]){
+        document.getElementById("Ans"+choice).style.color = "#D0021B";
+        document.getElementById("Ans"+choice).innerHTML += " &#10008;";
+    }
+}
+
+function setPractice(l, p){
+    q = 0;
+    level = l;
+    practice = p;
+    var questions;
+    switch(level){
+        case 0:
+            questions = begQuestions;
+            break;
+        case 1:
+            questions = intQuestions;
+            break;
+        case 2:
+            questions = advQuestions;
+            break;
+        default:
+            console.log('ERROR: Illegal level')
+    }
+    qmax = questions[practice].length-1;
+    document.getElementById("header").innerHTML = practiceTitle[level][practice];
+    switch (level) {
+        case 0:
+            document.getElementById("navBeg").className += " current";
+            break;
+        case 1:
+            document.getElementById("navInt").className += " current";
+            break;
+        case 2:
+            document.getElementById("navAdv").className += " current";
+            break;
+        default:
+            console.log("ERROR: Illegal Level");
+    }
+    setQuestion();
+}
+
+function navigateLevel(level){
+    var form = document.createElement("form");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "practice.php");
+    var hiddenField = document.createElement("input");
+    hiddenField.setAttribute("type", "hidden");
+    hiddenField.setAttribute("name", "level");
+    hiddenField.setAttribute("value", level);
+
+    form.appendChild(hiddenField);
+    document.body.appendChild(form);
+    form.submit();
 }

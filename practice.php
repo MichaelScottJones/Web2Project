@@ -1,67 +1,20 @@
 <?php
 	include_once("header.inc.php");
+	if(!empty($_POST)){
+		$level = $_POST["level"];
+		echo '<input type="hidden" id="level" value="' . $level . '"></input>';
+	}
 ?>
+<script src="practiceScript.js"></script>
 <script>
-	var level = 0;
-	var sectionTitle = [
-		"Basic Practice",
-		"Intermediate Practice",
-		"Advanced Practice"
-	]
-	var practiceTitle = [
-		[
-			"Introduction to RegEx",
-			"Literal Characters",
-			"Metacharacters",
-			"Special Characters, Wildcard"
-		],
-		[
-			"Character Sets",
-			"Repetition Metacharacters",
-			"Quantified Repetition"
-		],
-		[
-			"Back Referencing",
-			"Word Boundaries",
-			"Atomic Group",
-			"Recursion",
-			"Callbacks",
-			"Commenting"
-		]
-	]
-	function post(lesson){
-		
-	}
-
-	function generateLessons(l){
-		level = l;
-		content = "";
-		for(var i=0; i<practiceTitle[level].length; i++){
-			content += '<p class="description">Practice ' + (i+1) + ": " + practiceTitle[level][i] + '</p>';
-		    content += '<button type="button" onclick="post(' + i + ')" class="smallGreenButton">Go</button>';
-		}
-		document.getElementById("practiceLinks").innerHTML = content;
-		document.getElementById("header").innerHTML = sectionTitle[level];
-		document.getElementById("navAdv").className = "navButton last local";
-		document.getElementById("navInt").className = "navButton local";
-		document.getElementById("navBeg").className = "navButton local";
-		switch (level) {
-			case 0:
-				document.getElementById("navBeg").className += " current";
-				break;
-			case 1:
-				document.getElementById("navInt").className += " current";
-				break;
-			case 2:
-				document.getElementById("navAdv").className += " current";
-				break;
-			default:
-				console.log("ERROR: Illegal Level");
-		}
-	}
-
 	window.onload = function(){
-		generateLessons(0);
+		if(document.getElementById("level") != null){
+			var level = document.getElementById("level").value * 1.0;
+		}
+		else{
+			level = 0;
+		}
+		generateLessons(level);
 	}
 </script>
 
