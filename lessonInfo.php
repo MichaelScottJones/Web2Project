@@ -1,16 +1,5 @@
 <?php
 	include_once("header.inc.php");
-	if(!empty($_POST)){
-		$file = $_POST["lesson"];
-		include_once($file);
-		$level = $_POST["level"];
-		echo '<input type="hidden" id="level" value="' . $level . '"></input>';
-		$lessonNum = $_POST["lessonNum"];
-		echo '<input type="hidden" id="lessonNum" value="' . $lessonNum . '"></input>';
-	}
-	else{
-		header( 'Location: lessons.php' ) ;
-	}
 ?>
 <script src="lessonScript.js"></script>
 <script>
@@ -48,6 +37,20 @@
             </ul>
         </div>
     </nav>
+
+	<?php
+		if(!empty($_POST)){
+			$file = $_POST["lesson"];
+			include_once($file);
+			$level = $_POST["level"];
+			echo '<input type="hidden" id="level" value="' . $level . '"></input>';
+			$lessonNum = $_POST["lessonNum"];
+			echo '<input type="hidden" id="lessonNum" value="' . $lessonNum . '"></input>';
+		}
+		else{
+			header( 'Location: lessons.php' ) ;
+		}
+	 ?>
 
     <div class="bottomDiv">
         <button type="button" onclick="window.location.href='lessons.php'" class="backButton">Back</button>
