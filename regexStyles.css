@@ -87,7 +87,8 @@ code {
     font-weight: 500; 
     color: white; 
     height: 80px; 
-    width: 222px;  
+    width: 222px;
+    cursor: pointer;
 }
 
 .greenButton:hover {
@@ -103,7 +104,8 @@ code {
     font-size: 20px;
     color: white; 
     height: 55px; 
-    width: 120px; 
+    width: 120px;
+    cursor: pointer;
 }
 
 .smallGreenButton:hover {
@@ -134,7 +136,8 @@ code {
     height: 55px; 
     width: 140px; 
     position: absolute; 
-    right: 0; 
+    right: 0;
+    cursor: pointer;
 }
 
 .nextButton:hover {
@@ -153,6 +156,7 @@ code {
     width: 140px; 
     position: absolute; 
     left: 0;
+    cursor: pointer;
 }
 
 .backButton:hover {
