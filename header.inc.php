@@ -20,6 +20,7 @@
 	<title>RegEx</title>                                                   <!-- TODO: VARIABLE TITLE -->
     <link rel="stylesheet" type="text/css" href="regexStyles.css">
     <link rel="stylesheet" type="text/css" href="regexNavStyles.css">
+    <link rel="shortcut icon" href="media/favicon.png">
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
